@@ -153,17 +153,6 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 <br />
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
-
-
-<!-- USAGE EXAMPLES -->
-## Uso
-
-
-
-<p align="right">(<a href="#inicio">Inicio</a>)</p>
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -183,6 +172,15 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
+
+
+<!-- USAGE EXAMPLES -->
+## Uso
+Para la visualización de los puntos anteriores se proporciona un archivo de exportación de Postman dentro del repositorio `/api/seeds`
+
+Para utilizar este API lo primero que se debe es cargar conductores y usuarios , para poder probar y darle funcionalidad se genero el EndPoint `/api/seeds` 
+
+<p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
