@@ -216,8 +216,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [linkedin-url]: [https://linkedin.com/in/linkedin_username](https://www.linkedin.com/in/moises-granciano-2840b6197/)
 [product-screenshot]: img/screen02.png
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/mgranciano/challenge_taxi24/graphs/contributors
-
+[contributors-url]: [https://github.com/mgranciano/challenge_taxi24/graphs/contributors](https://github.com/mgranciano/challenge_taxi24/graphs/contributors)
 
 
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
