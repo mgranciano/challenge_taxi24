@@ -159,7 +159,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [stars-shield]: https://img.shields.io/github/stars/mgranciano/challenge_taxi24.svg?style=for-the-badge
 [stars-url]: https://github.com/mgranciano/challenge_taxi24/stargazers
 [product-screenshot]: img/screen02.png
-[node-version-screenshot]: img/screen02.png
+[node-version-screenshot]: img/node01.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
 [Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
