@@ -39,7 +39,7 @@
       <a href="#para-inicar">Para iniciar</a>
       <ul>
         <li><a href="#prerequisitos">Prerequisitos</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -76,7 +76,7 @@
 
 Para obtener una copia local en funcionamiento, siga estos sencillos pasos de ejemplo.
 
-### Prerequisites
+### Prerequisitos
 
 En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux , Mac )
 
@@ -84,7 +84,7 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
 * [Docker](https://www.docker.com/products/docker-desktop)
 * [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-### Installation
+### Instalación
 
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
