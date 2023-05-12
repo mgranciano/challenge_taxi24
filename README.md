@@ -94,6 +94,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    2. Debera tener un resultado similar a la siguiente imagen
     [![Node_Version Screen Shot][node-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 <br />
+
 - [ ] Docker
   1. Ejecutar desde una terminal el siguiente comando   
    ```sh
@@ -101,6 +102,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    ```  
    2. Debera tener un resultado similar a la siguiente imagen
     [![Docker_Version Screen Shot][docker-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+    
 <br />
 ### Ejecutando la base de datos
 
@@ -117,7 +119,9 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    npm install
    ```
    <br />
+   
    [![Node Screen Shot][node-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+   
    <br />
 3. Entrar en el código y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se deberá ajustar los valores siguientes
    <br />
