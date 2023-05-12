@@ -31,15 +31,16 @@
     <li>
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
-        <li><a href="#construido">Construido</a></li>
+        <li><a href="#construido-con">Construido con</a></li>
       </ul>
     </li>
     <li>
       <a href="#para-inicar">Para iniciar</a>
       <ul>
-        <li><a href="#prerequisitos">Prerequisitos</a></li>
+         <li><a href="#prerequisitos">Prerequisitos</a></li>
          <li><a href="#validación">Validación</a></li>
-        <li><a href="#instalación">Instalación</a></li>
+         <li><a href="#ejecutando-la-base-de-datos">Ejecutando la base de datos</a></li>
+         <li><a href="#ejecutando-el-código">Ejecutando el código</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -59,7 +60,7 @@
 
 
 
-### Construido
+### Construido con
 
 * [![NodeJs][NodeJs]][NodeJs-url]
 * [![Express][Express]][Express-url]
@@ -78,7 +79,7 @@
 
 ### Prerequisitos
 
-En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux , Mac )
+Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux , Mac )
 
 * [NodeJs](https://nodejs.org/en/download)
 * [Docker](https://www.docker.com/products/docker-desktop)
@@ -102,17 +103,20 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
    2. Debera tener un resultado similar a la siguiente imagen
     [![Docker_Version Screen Shot][docker-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
-### Instalación
+### Ejecutando la base de datos
+
+### Ejecutando el código
 
 1. Clonar el repositorio
    ```sh
    git clone https://github.com/mgranciano/challenge_taxi24.git
    ```
-2. Instalación de paquetes via npm
+2. Entrar la carpeta generada dentro entrar a `myapp` y ejecutar `npm install`
    ```sh
+   cd challenge_taxi24/myapp
    npm install
    ```
-3. Entrar en el codigo y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se debera ajustar los valores siguientes
+3. Entrar en el código y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se deberá ajustar los valores siguientes
    ```js
     #Puerto donde se iniciara el API
     PORT=3001
@@ -126,6 +130,10 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
     #Coordenadas en latitud y longitud para iniciar la población de la base de datos , tome como referencia una ubicación al azar
     LATITUDE=19.429350
     LONGITUDE=-99.178106
+   ```
+ 4. Para ejecutar el código   
+    ```sh
+   npm install
    ```
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
