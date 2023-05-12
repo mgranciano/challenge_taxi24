@@ -30,9 +30,9 @@
   <summary>Tabla de contenido</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Sobre el proyecto</a>
+      <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
-        <li><a href="#built-with">Construido</a></li>
+        <li><a href="#construido">Construido</a></li>
       </ul>
     </li>
     <li>
@@ -64,7 +64,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 
 
-### Built With
+### Construido
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
