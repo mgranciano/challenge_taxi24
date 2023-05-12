@@ -1,4 +1,3 @@
-
 <a name="inicio"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -39,6 +38,7 @@
       <a href="#para-inicar">Para iniciar</a>
       <ul>
         <li><a href="#prerequisitos">Prerequisitos</a></li>
+         <li><a href="#validación">Validación</a></li>
         <li><a href="#instalación">Instalación</a></li>
       </ul>
     </li>
@@ -76,8 +76,6 @@
 <!-- GETTING STARTED -->
 ## Para iniciar
 
-Para obtener una copia local en funcionamiento, siga estos sencillos pasos de ejemplo.
-
 ### Prerequisitos
 
 En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux , Mac )
@@ -85,6 +83,18 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
 * [NodeJs](https://nodejs.org/en/download)
 * [Docker](https://www.docker.com/products/docker-desktop)
 * [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+### Validación
+
+- [ ] NodeJs
+  1. Ejecutar desde una terminal el siguiente comando   
+   ```sh
+     node -v
+   ```  
+   2. Debera tener un resultado similar a la siguiente imagen
+    [![Node_Version Screen Shot][node-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+
+- [ ] Docker
 
 ### Instalación
 
@@ -149,6 +159,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [stars-shield]: https://img.shields.io/github/stars/mgranciano/challenge_taxi24.svg?style=for-the-badge
 [stars-url]: https://github.com/mgranciano/challenge_taxi24/stargazers
 [product-screenshot]: img/screen02.png
+[node-version-screenshot]: img/screen02.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
 [Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
@@ -161,5 +172,4 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [mongoose-url]: https://mongoosejs.com/
 [MongoDB]: https://img.shields.io/badge/mongodb-C0C0C0?style=for-the-badge&logo=mongodb&logoColor=00FF66
 [MongoDB-url]: https://www.mongodb.com/
-
 
