@@ -132,7 +132,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     LONGITUDE=-99.178106
    ```
  4. Para ejecutar el código   
-    ```sh
+   ```sh
    npm install
    ```
 
