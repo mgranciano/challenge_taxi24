@@ -5,7 +5,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -14,7 +13,6 @@
 
   <p align="center">
     Construcción de un API REST con el lenguaje de programación NodeJs , debe de proporcionar una funcionalidad para Conductores, Usuario y los Viajes entre estos dos.
-    <br />
     <br />
     <br />
     ·
@@ -42,7 +40,7 @@
          <li><a href="#ejecutando-el-código">Ejecutando el código</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#uso">Uso</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
   </ol>
 </details>
@@ -150,7 +148,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    <br />
 3. Para ejecutar el código   
    ```sh
-   npm install
+   npm run start:dev
    ```
 <br />
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
@@ -158,11 +156,9 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Uso
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
@@ -171,12 +167,19 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+- [ ] Conductores
+    - [ ] Obtener una lista de todos los conductores
+    - [ ] Obtener una lista de todos los conductores disponibles
+    - [ ] Obtener una lista de todos los conductores disponibles en un radío de 3 Km para una ubicación especifica
+    - [ ] Obtener un conductor especifico por su ID
+- [ ] Viajes
+    - [ ] Crear una solicutd de Viaje y asignar un conductor
+    - [ ] Completar un viaje en proceso
+    - [ ] Obtener una lista de todos los viajes en curso
+- [ ] Usuarios
+    - [ ] Obtener una lista de todos los pasajeros
+    - [ ] Obtener un pasajero especifico por su ID
+    - [ ] Para un usuario solicitando un viaje , obtener una lista de los 3 conductores más cercanos al punto de partida
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
