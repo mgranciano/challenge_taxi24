@@ -14,7 +14,7 @@
 <h3 align="center">Taxi24</h3>
 
   <p align="center">
-    project_description
+    Construcción de un API REST con el lenguaje de programación NodeJs , debe de proporcionar una funcionalidad para Conductores, Usuario y los Viajes entre estos dos.
     <br />
     <a href="https://github.com/mgranciano/challenge_taxi24"><strong>Explore the docs »</strong></a>
     <br />
