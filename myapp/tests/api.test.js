@@ -1,96 +1,88 @@
-const { dbConnection, dbConnectionClose } = require("../providers/config-mongo");
-const { Driver } = require("../schemas/driver");
-const { User } = require("../schemas/user");
+const {
+  dbConnection,
+  dbConnectionClose,
+} = require("../providers/config-mongo");
+const DriverI = require("../models/driver");
+const UserI = require("../models/user");
 
+beforeAll(async () => {
+  await dbConnection();
+});
 
-beforeAll(
-    async () => {
-        await  dbConnection();
-    }
-);
+afterAll(async () => {
+  await dbConnectionClose();
+});
 
-afterAll(
-    async () => {
-        await  dbConnectionClose();
-    }
-);
+describe("User Test", () => {
+  const user = new UserI();
+  var id = "";
 
-describe('User Test', () => {
+  test("Create", async () => {
+    const userCreate = await user.create(
+      `user`,
+      `lastname`,
+      `email@user.com`,
+      5555555550
+    );
+    id = userCreate._id;
+    expect(userCreate.name).toEqual("user");
+    expect(userCreate.lastname).toEqual("lastname");
+  });
 
-    const user = new User({ name:`user`, lastname:`lastname`, email: `email@user.com`, cellphone:5555555550,intravel :true });
+  test("Read", async () => {
+    const userRead = await user.findById(id);
 
-    test('Create User', async () => {
+    expect(userRead.name).toEqual("user");
+    expect(userRead.status).toEqual(true);
+  });
 
-        
-        await user.save();
-        
-        expect(user.name).toEqual('user');
-        expect(user.status).toEqual(true);
+  test("Update", async () => {
+    const userUpdate = await user.findByIdAndUpdate(id, { name: "newName" });
+    expect(userUpdate.name).toEqual("newName");
+  });
 
-    })
+  test("Delete", async () => {
+    await user.findByIdAndDelete(id, { returnDocument: "after" });
+    const userRead = await user.findById(id);
+    expect(userRead).toEqual(null);
+  });
+});
 
-    test('Read User', async () => {
+describe("Driver Test", () => {
+  const driver = new DriverI();
+  var id = "";
 
-        const userRead = await User.findById(user._id);
+  test("Create", async () => {
+    const driverCreate = await driver.create(
+      `driver`,
+      `lastnameDriver`,
+      `emailDriver@user.com`,
+      5555555550,
+      19.517494,
+      -99.0121012
+    );
+    id = driverCreate._id;
+    expect(driverCreate.name).toEqual("driver");
+    expect(driverCreate.lastname).toEqual("lastnameDriver");
+  });
 
-        expect(userRead.name).toEqual('user');
-        expect(userRead.status).toEqual(true);
+  test("Read", async () => {
+    const driverRead = await driver.findById(id);
 
-    })
+    expect(driverRead.name).toEqual("driver");
+    expect(driverRead.status).toEqual(true);
+  });
 
-    test('Update User', async () => {
+  test("Update", async () => {
+    const driverUpdate = await driver.findByIdAndUpdate(id, {
+      name: "newName",
+    });
+    expect(driverUpdate.name).toEqual("newName");
+  });
 
-        const userUpdate = await User.findByIdAndUpdate( user._id, {name:'newName'} , {returnDocument: 'after'});
-        expect(userUpdate.name).toEqual('newName');
-
-    })
-
-    test('Delete User', async () => {
-
-        await User.findByIdAndDelete( user._id , {returnDocument: 'after'});
-        const userRead = await User.findById(user._id);
-        expect(userRead).toEqual(null);
-
-    })
-})
-
-describe('Driver Test', () => {
-
-    const driver = new Driver({ name:`driver`, lastname:`lastnameDriver`, email: `emailDriver@taxi24.com`, cellphone:5555555550 , 
-                                 latitude:19.517494, longitude: -99.0121012 });
-    
-
-    test('Create Driver', async () => {
-
-        
-        await driver.save();
-        
-        expect(driver.name).toEqual('driver');
-        expect(driver.status).toEqual(true);
-
-    })
-
-    test('Read Driver', async () => {
-
-        const driverRead = await Driver.findById(driver._id);
-
-        expect(driverRead.name).toEqual('driver');
-        expect(driverRead.status).toEqual(true);
-
-    })
-
-    test('Update Driver', async () => {
-
-        const driverUpdate = await Driver.findByIdAndUpdate( driver._id, {name:'newName'} , {returnDocument: 'after'});
-        expect(driverUpdate.name).toEqual('newName');
-
-    })
-
-    test('Delete Driver', async () => {
-
-        await Driver.findByIdAndDelete( driver._id , {returnDocument: 'after'});
-        const driverRead = await Driver.findById(driver._id);
-        expect(driverRead).toEqual(null);
-
-    })
-})
+  test("Delete", async () => {
+    await driver.findByIdAndDelete(id, { returnDocument: "after" });
+    const driverRead = await driver.findById(id);
+    expect(driverRead).toEqual(null);
+  });
+});

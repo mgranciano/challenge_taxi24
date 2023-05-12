@@ -2,7 +2,7 @@ const cors = require('cors');
 const express = require('express');
 const logger = require('morgan');
 
-const bodyParser = require('body-parser');
+const os = require("os");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -18,7 +18,7 @@ class Server {
         this.driversPath = '/api/drivers';
         this.travelsPath = '/api/travels';
         this.seedsPath = '/api/seeds';
-
+        this.hostname = os.hostname();
         // Middlewares
         this.middlewares();
 
@@ -81,11 +81,11 @@ class Server {
               },
               servers: [
                 {
-                  url: "http://localhost:3001/api/",
+                  url: `http://${this.hostname}:${this.port}/api/`,
                 },
               ],
             },
-            apis: ["./routes/*.js"],
+            apis: [`./routes/*.js`],
           };
           
           const specs = swaggerJsdoc(options);
@@ -100,7 +100,7 @@ class Server {
     listen() {
         this.connectDB().then(()=> {
             this.app.listen( this.port, () => {
-                console.log(`Start server in port [${this.port}]`);
+                console.log(`Start server in [${this.hostname}:${this.port}] or [ localhost:${this.port} ]`);
             });
         }).catch( (error) =>{
             console.log(error);
