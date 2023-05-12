@@ -15,7 +15,6 @@
   <p align="center">
     Construcción de un API REST con el lenguaje de programación NodeJs , debe de proporcionar una funcionalidad para Conductores, Usuario y los Viajes entre estos dos.
     <br />
-    <a href="https://github.com/mgranciano/challenge_taxi24"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     ·
@@ -94,7 +93,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    ```  
    2. Debera tener un resultado similar a la siguiente imagen
     [![Node_Version Screen Shot][node-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
-
+<br />
 - [ ] Docker
   1. Ejecutar desde una terminal el siguiente comando   
    ```sh
@@ -102,7 +101,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    ```  
    2. Debera tener un resultado similar a la siguiente imagen
     [![Docker_Version Screen Shot][docker-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
-
+<br />
 ### Ejecutando la base de datos
 
 ### Ejecutando el código
@@ -111,13 +110,17 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    ```sh
    git clone https://github.com/mgranciano/challenge_taxi24.git
    ```
+   <br />
 2. Entrar la carpeta generada dentro entrar a `myapp` y ejecutar `npm install`
    ```sh
    cd challenge_taxi24/myapp
    npm install
    ```
+   <br />
    [![Node Screen Shot][node-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+   <br />
 3. Entrar en el código y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se deberá ajustar los valores siguientes
+   <br />
    ```js
     #Puerto donde se iniciara el API
     PORT=3001
@@ -132,11 +135,12 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     LATITUDE=19.429350
     LONGITUDE=-99.178106
    ```
+   <br />
  4. Para ejecutar el código   
    ```sh
    npm install
    ```
-
+<br />
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
