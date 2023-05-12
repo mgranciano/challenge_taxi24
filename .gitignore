@@ -41,6 +41,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+docker/data1/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -50,7 +51,7 @@ web_modules/
 
 # Optional npm cache directory
 .npm
-
+.DS_Store
 # Optional eslint cache
 .eslintcache
 

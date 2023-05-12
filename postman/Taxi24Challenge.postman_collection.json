@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "8a3d3150-7862-4ff4-947d-d25646fa5d9d",
+		"name": "Taxi24Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3533299"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "user-get-all (obtener todos los pasajeros )",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "limite",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-get-active",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/active",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-get-intravel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/intravel",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"intravel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-get-id (obtener pasajero por ID )",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/645c969a59c752ff78178e19",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"645c969a59c752ff78178e19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"moises\",\n    \"lastname\":\"granciano\",\n    \"email\":\"moises@granciano\",\n    \"cellphone\": \"5540018338\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/645b26416da767e5033f8d02",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"645b26416da767e5033f8d02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"intravel\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/645d3b95fba62783ec5a9b9e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"645d3b95fba62783ec5a9b9e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "drivers",
+			"item": [
+				{
+					"name": "driver-get-all (obtener una lista de todos los condutores)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers?limite=40",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers"
+							],
+							"query": [
+								{
+									"key": "limite",
+									"value": "40"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-get-active( conductores disponibles )",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers/active",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-get-3km( conductores disponibles en 3 km )",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers/closest/19.517494/-99.0121012",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"closest",
+								"19.517494",
+								"-99.0121012"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-get-intravel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers/intravel",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"intravel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-get-notintravel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers/notintravel",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"notintravel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-get-id (conductor por id )",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers/645c7678a39796c640a4be8a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"645c7678a39796c640a4be8a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"alma\",\n    \"lastname\":\"lastname4\",\n    \"email\":\"email@test4\",\n    \"cellphone\": \"5540018338\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/drivers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/drivers/645bdde51d5dca6474d76ac9",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"645bdde51d5dca6474d76ac9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"intravel\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/drivers/645d3b95fba62783ec5a9b7f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"drivers",
+								"645d3b95fba62783ec5a9b7f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "travels",
+			"item": [
+				{
+					"name": "travels-get-all (obtener todos los viajes activos)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/travels/allactivetravels?limite=2&desde=0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								"allactivetravels"
+							],
+							"query": [
+								{
+									"key": "limite",
+									"value": "2"
+								},
+								{
+									"key": "desde",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finish travel (completar viaje)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"latitude\": 20.517494,\n    \"longitude\": -90.0121012\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/travels/finishtravel/645c96b759c752ff78178e1e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								"finishtravel",
+								"645c96b759c752ff78178e1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "travel-get-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/travels/645da7f0a02aba154d9ab3eb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								"645da7f0a02aba154d9ab3eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start travel ( iniciar viaje)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"latitude\": 19.617494,\n    \"longitude\": -99.1121012,\n    \"id\":\"645d3b95fba62783ec5a9b9e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/travels/starttravel",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								"starttravel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "driver-get-3closer( 3 conductores mas cercanos  )",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/travels/closest/645d3b95fba62783ec5a9b86/19.517494/-99.0121012",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"travels",
+								"closest",
+								"645d3b95fba62783ec5a9b86",
+								"19.517494",
+								"-99.0121012"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seeds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/seeds",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"seeds"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
