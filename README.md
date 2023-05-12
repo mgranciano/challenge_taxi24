@@ -117,6 +117,15 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    git clone https://github.com/mgranciano/challenge_taxi24.git
    ```
    <br />
+
+2. Entrar en la carpeta genera y a la carpeta `docker` , estando situados en esta carpeta se tendra que ejecutar el comando `docker-compose` , si todo esta correcto la base de datos quedara levantada 
+
+   ```sh
+    cd challenge_taxi24/docker
+    docker-compose up -d
+    docker ps
+   ```
+
 ### Ejecutando el código
 
 1. Entrar la carpeta generada en el paso de clonación que se realizo en el punto 1 de la base de datos (<a href="#ejecutando-la-base-de-datos">Ejecutando la base de datos</a>) dentro entrar a `myapp` y ejecutar `npm install`
