@@ -236,7 +236,7 @@ Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que es
 [Swagger-url]: https://swagger.io/
 [Docker]: https://img.shields.io/badge/docker-C0C0C0?style=for-the-badge&logo=docker&logoColor=0066FF
 [Docker-url]: https://www.docker.com/
-[mongoose]: https://img.shields.io/badge/monsoosee-C0C0C0?style=for-the-badge&logo=monsoosee&logoColor=CC3333
+[mongoose]: https://img.shields.io/badge/mongoosee-C0C0C0?style=for-the-badge&logo=mongooseedotjs&logoColor=CC3333
 [mongoose-url]: https://mongoosejs.com/
 [MongoDB]: https://img.shields.io/badge/mongodb-C0C0C0?style=for-the-badge&logo=mongodb&logoColor=00FF66
 [MongoDB-url]: https://www.mongodb.com/
