@@ -8,15 +8,24 @@ const dbConnection = async() => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
-            useFindAndModify: false
+            useFindAndModify: false,
+            dbName: 'taxi24_db'
         });
-    
-        console.log('Connect to DataBase [OK]');
+
+        console.log(`Connect to DataBase [${process.env.DB_HOST}][OK]`);
 
     } catch (error) {
-        throw new Error(`Connect to DataBase [${error.codeName}]`);
+        throw new Error(`Connect to DataBase [${error}]`);
     }
+ 
+}
 
+const dbClear = async() => {
+    try {
+        await mongoose.connection.db.dropDatabase();
+    } catch (error) {
+        throw new Error(`Error in Clear DataBase [${error}]`);
+    } 
 }
 
 const dbConnectionClose = async() => {
@@ -30,12 +39,13 @@ const dbConnectionClose = async() => {
     } catch (error) {
         throw new Error(`Connect to DataBase [${error.codeName}]`);
     }
-
+ 
 }
 
 
 
 module.exports = {
+    dbClear,
     dbConnection,
     dbConnectionClose
 }

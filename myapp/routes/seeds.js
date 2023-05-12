@@ -9,8 +9,14 @@ const {
   findClosestCoord,
   getRandomCoordinates,
 } = require("../helpers/coords-utils");
+const { dbClear } = require("../providers/config-mongo");
+
 
 router.get("/", async (req, res, next) => {
+
+
+  await dbClear()
+
   const center = {
     latitude: +process.env.LATITUDE,
     longitude: +process.env.LONGITUDE,
