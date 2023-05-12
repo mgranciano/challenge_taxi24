@@ -204,14 +204,21 @@ Para la visualización de los puntos anteriores se proporciona un archivo de exp
 
 <br />
 
-------aqui nombrar el swagger
+Tambien esta activo una versión de swagger que nos permite manipular estos _request_ desde un navegador sin necesidad de un aplicativo de terceros esta estara disponible en `http://localhost:3001` donde el ***3001*** es el puerto configurado dentro del archivo .env . 
+
+<br />
+
+[![Swagger_Screen Shot][swagger-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+
+<br />
+
 
 Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que este contiene una logica para cargar aleatoriamente 20 Conductores en un diametro máximo 10 kilometros y 5 en diametro máximo de 4 kilomentos apartir de las coordenadas que se configuraron en el archivo `.env` , tambien de los 20 primeros conductores se generan 15 usuarios y se les asigna un viaje con su conductor más cercano.
 
 
 ### Usuarios
 
-1. Para generar un conductor se requiere el _request_ `{{url}}/api/users` es de tipo `**post**` , este regresara el usuario generado nuevo conteniendo el ID que sera necesario para poder buscar la informaciòn de este, y requiere de un body de la siguiente forma :
+1. Para generar un usuario se requiere el _request_ `{{url}}/api/users` es de tipo `**post**` , este regresara el usuario generado nuevo conteniendo el ID que sera necesario para poder buscar la informaciòn de este, y requiere de un body de la siguiente forma :
 
   ```json
    {
@@ -222,9 +229,28 @@ Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que es
    }
   ```
   
-3. Para validar la informaciòn de este usuario más adelante se utilizará el _request_ `{{url}}/api/users/:id` es de tipo `**get**`, donde _:id_ corresponde a parte de la informaciòn del punto anterior.
-4. Para obtener todos los usuario hasta el momento se utilizará el _request_ `{{url}}/api/users` es de tipo `**get**`, este retornara todos los usuarios que existen hasta el momento.
-5. Para obtener los 3 condutores más cercanos se utilizara el _reques_ `{{url}}/api/travels/closest/:id/:logitud/_latitud` es de tipo `**get**`, donde _:id_ corresponde al ID de un usuario existente y _:latitud_ y _:longitud_ corresponden a coordenadas geograficas (como los de google maps) 
+2. Para validar la informaciòn de este usuario más adelante se utilizará el _request_ `{{url}}/api/users/:id` es de tipo `**get**`, donde _:id_ corresponde a parte de la informaciòn del punto anterior.
+3. Para obtener todos los usuario hasta el momento se utilizará el _request_ `{{url}}/api/users` es de tipo `**get**`, este retornara todos los usuarios que existen hasta el momento.
+4. Para obtener los 3 condutores más cercanos se utilizara el _reques_ `{{url}}/api/travels/closest/:id/:logitud/_latitud` es de tipo `**get**`, donde _:id_ corresponde al ID de un usuario existente y _:latitud_ y _:longitud_ corresponden a coordenadas geograficas (como los de google maps) 
+
+
+### Conductores
+
+1. Para generar un conductor se requiere el _request_ `{{url}}/api/drivers` es de tipo `**post**` , este regresara el usuario generado nuevo conteniendo el ID que sera necesario para poder buscar la informaciòn de este, y requiere de un body de la siguiente forma :
+
+  ```json
+   {
+    "name":"<String>",
+    "lastname":"<String>",
+    "email":"<String>",
+    "cellphone": <Number>,
+    "latitude": <Number>,
+    "longitude": <Number>
+}
+  ```
+
+2. Para validar la informaciòn de este conductor más adelante se utilizará el _request_ `{{url}}/api/drivers/:id` es de tipo `**get**`, donde _:id_ corresponde a parte de la informaciòn del punto anterior.
+3. Para obtener todos los conductore hasta el momento se utilizará el _request_ `{{url}}/api/drivers` es de tipo `**get**`, este retornara todos los conductores que existen hasta el momento.
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
@@ -243,6 +269,7 @@ Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que es
 [docker-version-screenshot]: img/docker01.png
 [coordenadas-screenshot]: img/coords01.png
 [docker-compose-screenshot]: img/docker02.png
+[swagger-screenshot]: img/swagger01.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
 [Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
