@@ -1,5 +1,5 @@
 
-<a name="readme-top"></a>
+<a name="inicio"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -55,7 +55,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
 
@@ -67,7 +67,7 @@
 * [![Docker][Docker]][Docker-url]
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
 
@@ -100,7 +100,7 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
 
@@ -111,7 +111,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
 
@@ -125,18 +125,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
