@@ -82,11 +82,13 @@ Para obtener una copia local en funcionamiento, siga estos sencillos pasos de ej
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux , Mac )
 * npm
   ```sh
   npm install npm@latest -g
   ```
+* [NodeJs](https://nodejs.org/en/download)
+* [Docker](https://www.docker.com/products/docker-desktop)
 
 ### Installation
 
