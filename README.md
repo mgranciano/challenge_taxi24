@@ -65,6 +65,8 @@
 * [![Express][Express]][Express-url]
 * [![Swagger][Swagger]][Swagger-url]
 * [![Docker][Docker]][Docker-url]
+* [![mongoose][mongoose]][mongoose-url]
+* [![MongoDB][MongoDB]][MongoDB-url]
 
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
@@ -86,18 +88,28 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
 
 ### Instalación
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clonar el repositorio
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/mgranciano/challenge_taxi24.git
    ```
-3. Install NPM packages
+2. Instalación de paquetes via npm
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+3. Entrar en el codigo y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se debera ajustar los valores siguientes
    ```js
-   const API_KEY = 'ENTER YOUR API';
+    #Puerto donde se iniciara el API
+    PORT=3001
+
+    #Información de la base de datos usuario , contraseña , ip y puerto de la base de datos que se configuro previamente
+    DB_USER=helpdev
+    DB_PASS=123456
+    DB_HOST=localhost
+    DB_PORT=27017
+
+    #Coordenadas en latitud y longitud para iniciar la población de la base de datos , tome como referencia una ubicación al azar
+    LATITUDE=19.429350
+    LONGITUDE=-99.178106
    ```
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
@@ -137,12 +149,17 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [stars-shield]: https://img.shields.io/github/stars/mgranciano/challenge_taxi24.svg?style=for-the-badge
 [stars-url]: https://github.com/mgranciano/challenge_taxi24/stargazers
 [product-screenshot]: img/screen02.png
-[NodeJs]: https://img.shields.io/badge/nodejs-000000?style=for-the-badge&logo=nodedotjs&logoColor=white
+[NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
-[Express]: https://img.shields.io/badge/expressjs-000000?style=for-the-badge&logo=expressjs&logoColor=white
+[Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
 [Express-url]: https://expressjs.com/
-[Swagger]: https://img.shields.io/badge/swagger-00FF00?style=for-the-badge&logo=swagger&logoColor=black
+[Swagger]: https://img.shields.io/badge/swagger-C0C0C0?style=for-the-badge&logo=swagger&logoColor=33FF66
 [Swagger-url]: https://swagger.io/
-[Docker]: https://img.shields.io/badge/docker-000000?style=for-the-badge&logo=docker&logoColor=0000FF
+[Docker]: https://img.shields.io/badge/docker-C0C0C0?style=for-the-badge&logo=docker&logoColor=0066FF
 [Docker-url]: https://www.docker.com/
+[mongoose]: https://img.shields.io/badge/monsoosee-C0C0C0?style=for-the-badge&logo=monsoosee&logoColor=CC3333
+[mongoose-url]: https://mongoosejs.com/
+[MongoDB]: https://img.shields.io/badge/mongodb-C0C0C0?style=for-the-badge&logo=mongodb&logoColor=00FF66
+[MongoDB-url]: https://www.mongodb.com/
+
 
