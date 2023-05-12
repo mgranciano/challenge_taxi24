@@ -39,7 +39,7 @@
       <a href="#para-inicar">Para iniciar</a>
       <ul>
         <li><a href="#prerequisitos">Prerequisitos</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#instalación">Instalación</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
