@@ -95,6 +95,12 @@ En el equipo debe de tener instalado lo siguiente de acuerdo a su equipo ( Windo
     [![Node_Version Screen Shot][node-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
 - [ ] Docker
+  1. Ejecutar desde una terminal el siguiente comando   
+   ```sh
+     docker-compose -v
+   ```  
+   2. Debera tener un resultado similar a la siguiente imagen
+    [![Docker_Version Screen Shot][docker-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
 ### Instalación
 
@@ -160,6 +166,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [stars-url]: https://github.com/mgranciano/challenge_taxi24/stargazers
 [product-screenshot]: img/screen02.png
 [node-version-screenshot]: img/node01.png
+[docker-version-screenshot]: img/docker01.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
 [Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
