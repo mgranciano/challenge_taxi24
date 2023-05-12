@@ -65,7 +65,7 @@
 * [![Docker][Docker]][Docker-url]
 * [![mongoose][mongoose]][mongoose-url]
 * [![MongoDB][MongoDB]][MongoDB-url]
-
+* JEST
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
@@ -141,14 +141,20 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     DB_HOST=localhost
     DB_PORT=27017
 
-    #Coordenadas en latitud y longitud para iniciar la población de la base de datos , tome como referencia una ubicación al azar
+    #Coordenadas en latitud y longitud para iniciar la población de la base de datos , tome como referencia una ubicación al azar como las de google maps
     LATITUDE=19.429350
     LONGITUDE=-99.178106
    ```
    <br />
-3. Para ejecutar el código   
+   
+   Para las coordenadas antes mencionadas se pueden sacar de google maps dando click en cualquier punto y en el flotante aparecen :
+   
+   [![Coordenadas Shot][coordenadas-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+   
+   
+3. Para ejecutar el código  
    ```sh
-   npm run start:dev
+   npm run start
    ```
 <br />
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
@@ -161,14 +167,14 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     - [ ] Obtener una lista de todos los conductores disponibles
     - [ ] Obtener una lista de todos los conductores disponibles en un radío de 3 Km para una ubicación especifica
     - [ ] Obtener un conductor especifico por su ID
+- [ ] Usuarios
+    - [ ] Obtener una lista de todos los usuarios
+    - [ ] Obtener un pasajero especifico por su ID
+    - [ ] Para un usuario solicitando un viaje , obtener una lista de los 3 conductores más cercanos al punto de partida
 - [ ] Viajes
     - [ ] Crear una solicutd de Viaje y asignar un conductor
     - [ ] Completar un viaje en proceso
     - [ ] Obtener una lista de todos los viajes en curso
-- [ ] Usuarios
-    - [ ] Obtener una lista de todos los pasajeros
-    - [ ] Obtener un pasajero especifico por su ID
-    - [ ] Para un usuario solicitando un viaje , obtener una lista de los 3 conductores más cercanos al punto de partida
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
@@ -176,9 +182,35 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 
 <!-- USAGE EXAMPLES -->
 ## Uso
-Para la visualización de los puntos anteriores se proporciona un archivo de exportación de Postman dentro del repositorio `/api/seeds`
+Para la visualización de los puntos anteriores se proporciona un archivo de exportación de **_Postman_** dentro del repositorio llamado[`Taxi24Challenge.postman_collection.json`](https://github.com/mgranciano/challenge_taxi24/blob/master/postman/Taxi24Challenge.postman_collection.json) que contiene los _request_ a todas las rutas expuestas.
 
-Para utilizar este API lo primero que se debe es cargar conductores y usuarios , para poder probar y darle funcionalidad se genero el EndPoint `/api/seeds` 
+<br />
+
+[![Postman_Screen Shot][postman-screenshot]](https://github.com/mgranciano/challenge_taxi24)
+
+<br />
+
+------aqui nombrar el swagger
+
+Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que este contiene una logica para cargar aleatoriamente 20 Conductores en un diametro máximo 10 kilometros y 5 en diametro máximo de 4 kilomentos apartir de las coordenadas que se configuraron en el archivo `.env` , tambien de los 20 primeros conductores se generan 15 usuarios y se les asigna un viaje con su conductor más cercano.
+
+
+### Usuarios
+
+1. Para generar un conductor se requiere el _request_ `{{url}}/api/users` es de tipo `**post**` , este regresara el usuario generado nuevo conteniendo el ID que sera necesario para poder buscar la informaciòn de este, y requiere de un body de la siguiente forma :
+
+  ```json
+   {
+    "name":"<String>",
+    "lastname":"<String>",
+    "email":"<String>",
+    "cellphone": <Number>
+   }
+  ```
+  
+3. Para validar la informaciòn de este usuario más adelante se utilizará el _request_ `{{url}}/api/users/:id` es de tipo `**get**`, donde _:id_ corresponde a parte de la informaciòn del punto anterior.
+4. Para obtener todos los usuario hasta el momento se utilizará el _request_ `{{url}}/api/users` es de tipo `**get**`, este retornara todos los usuarios que existen hasta el momento.
+5. Para obtener los 3 condutores más cercanos se utilizara el _reques_ `{{url}}/api/travels/closest/:id/:logitud/_latitud` es de tipo `**get**`, donde _:id_ corresponde al ID de un usuario existente y _:latitud_ y _:longitud_ corresponden a coordenadas geograficas (como los de google maps) 
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
@@ -193,7 +225,9 @@ Para utilizar este API lo primero que se debe es cargar conductores y usuarios ,
 [product-screenshot]: img/screen02.png
 [node-version-screenshot]: img/node01.png
 [node-screenshot]: img/node02.png
+[postman-screenshot]: img/postman01.png
 [docker-version-screenshot]: img/docker01.png
+[coordenadas-screenshot]: img/coords01.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
 [Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
