@@ -9,7 +9,7 @@
 <br />
 <div align="center">
 
-<h3 align="center">Taxi24</h3>
+ > <h3 align="center"> Taxi24</h3>
 
   <p align="center">
     Construcción de un API REST con el lenguaje de programación NodeJs , debe de proporcionar una funcionalidad para Conductores, Usuario y los Viajes entre estos dos.
@@ -40,15 +40,15 @@
          <li><a href="#ejecutando-el-código">Ejecutando el código</a></li>
       </ul>
     </li>
-    <li><a href="#uso">Uso</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#uso">Uso</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## Sobre el proyecto
+> ## Sobre el proyecto
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
@@ -57,7 +57,7 @@
 
 
 
-### Construido con
+> ### Construido con
 
 * [![NodeJs][NodeJs]][NodeJs-url]
 * [![Express][Express]][Express-url]
@@ -65,16 +65,18 @@
 * [![Docker][Docker]][Docker-url]
 * [![mongoose][mongoose]][mongoose-url]
 * [![MongoDB][MongoDB]][MongoDB-url]
-* JEST
+* [![JEST][Jest]][Jest-url]
 
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Para iniciar
+> ## Para iniciar
 
-### Prerequisitos
+ <br />
+ 
+ ### Prerequisitos
 
 Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux , Mac )
 
@@ -118,7 +120,9 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    ```
    <br />
 
-2. Entrar en la carpeta genera y a la carpeta `docker` , estando situados en esta carpeta se tendra que ejecutar el comando `docker-compose` , si todo esta correcto la base de datos quedara levantada 
+2. Entrar en la carpeta genera y a la carpeta `docker` , estando situados en esta carpeta se tendra que ejecutar el comando `docker-compose` , si todo esta correcto la base de datos quedara levantada .
+
+ <br />
 
    ```sh
     cd challenge_taxi24/docker
@@ -126,6 +130,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     docker ps
    ```
 
+[![Docker Compose Screen Shot][docker-compose-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 ### Ejecutando el código
 
 1. Entrar la carpeta generada en el paso de clonación que se realizo en el punto 1 de la base de datos (<a href="#ejecutando-la-base-de-datos">Ejecutando la base de datos</a>) dentro entrar a `myapp` y ejecutar `npm install`
@@ -169,7 +174,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 <p align="right">(<a href="#inicio">Inicio</a>)</p>
 
 <!-- ROADMAP -->
-## Roadmap
+> ## Roadmap
 
 - [ ] Conductores
     - [ ] Obtener una lista de todos los conductores
@@ -190,7 +195,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 
 
 <!-- USAGE EXAMPLES -->
-## Uso
+> ## Uso
 Para la visualización de los puntos anteriores se proporciona un archivo de exportación de **_Postman_** dentro del repositorio llamado[`Taxi24Challenge.postman_collection.json`](https://github.com/mgranciano/challenge_taxi24/blob/master/postman/Taxi24Challenge.postman_collection.json) que contiene los _request_ a todas las rutas expuestas.
 
 <br />
@@ -237,6 +242,7 @@ Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que es
 [postman-screenshot]: img/postman01.png
 [docker-version-screenshot]: img/docker01.png
 [coordenadas-screenshot]: img/coords01.png
+[docker-compose-screenshot]: img/docker02.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
 [Express]: https://img.shields.io/badge/expressjs-C0C0C0?style=for-the-badge&logo=expressjs&logoColor=white
@@ -245,8 +251,10 @@ Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que es
 [Swagger-url]: https://swagger.io/
 [Docker]: https://img.shields.io/badge/docker-C0C0C0?style=for-the-badge&logo=docker&logoColor=0066FF
 [Docker-url]: https://www.docker.com/
-[mongoose]: https://img.shields.io/badge/mongoosee-C0C0C0?style=for-the-badge&logo=mongooseedotjs&logoColor=CC3333
+[mongoose]: https://img.shields.io/badge/mongoosee-C0C0C0?style=for-the-badge&logo=mongooseejs&logoColor=CC3333
 [mongoose-url]: https://mongoosejs.com/
 [MongoDB]: https://img.shields.io/badge/mongodb-C0C0C0?style=for-the-badge&logo=mongodb&logoColor=00FF66
 [MongoDB-url]: https://www.mongodb.com/
+[Jest]: https://img.shields.io/badge/jest-C0C0C0?style=for-the-badge&logo=jest&logoColor=00FF66
+[Jest-url]: https://jestjs.io/
 
