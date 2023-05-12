@@ -116,6 +116,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    cd challenge_taxi24/myapp
    npm install
    ```
+   [![Node Screen Shot][node-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 3. Entrar en el código y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se deberá ajustar los valores siguientes
    ```js
     #Puerto donde se iniciara el API
@@ -174,6 +175,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 [stars-url]: https://github.com/mgranciano/challenge_taxi24/stargazers
 [product-screenshot]: img/screen02.png
 [node-version-screenshot]: img/node01.png
+[node-screenshot]: img/node02.png
 [docker-version-screenshot]: img/docker01.png
 [NodeJs]: https://img.shields.io/badge/nodejs-C0C0C0?style=for-the-badge&logo=nodedotjs&logoColor=008000
 [NodeJs-url]: https://nodejs.org/
