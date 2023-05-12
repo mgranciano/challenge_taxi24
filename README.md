@@ -36,9 +36,9 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#para-inicar">Para iniciar</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#prerequisitos">Prerequisitos</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -56,9 +56,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre el proyecto
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,25 +68,17 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 * [![NodeJs][NodeJs]][NodeJs-url]
 * [![Express][Express]][Express-url]
 * [![Swagger][Swagger]][Swagger-url]
+* [![Docker][Docker]][Docker-url]
 
-
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Para iniciar
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Para obtener una copia local en funcionamiento, siga estos sencillos pasos de ejemplo.
 
 ### Prerequisites
 
@@ -206,4 +197,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [Express-url]: https://expressjs.com/
 [Swagger]: https://img.shields.io/badge/swagger-00FF00?style=for-the-badge&logo=swagger&logoColor=black
 [Swagger-url]: https://swagger.io/
+[Docker]: https://img.shields.io/badge/docker-000000?style=for-the-badge&logo=docker&logoColor=0000FF
+[Docker-url]: https://www.docker.com/
 
