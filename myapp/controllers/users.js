@@ -1,7 +1,6 @@
 const { response, request } = require('express');
 const { User } = require('../schemas/user');
 
-
 const userGet = async (req = request, res = response) => {
 
     const [ total, users ] = await Promise.all([
