@@ -53,7 +53,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://github.com/mgranciano/challenge_taxi24)
 
 
-<p align="right">(<a href="#inicio">Inicio</a>)</p>
+<p align="right"><a href="#inicio">Inicio</a></p>
 
 
 
@@ -67,7 +67,7 @@
 * [![MongoDB][MongoDB]][MongoDB-url]
 * [![JEST][Jest]][Jest-url]
 
-<p align="right">(<a href="#inicio">Inicio</a>)</p>
+<p align="right"><a href="#inicio">Inicio</a></p>
 
 
 
@@ -171,7 +171,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    npm run start
    ```
 <br />
-<p align="right">(<a href="#inicio">Inicio</a>)</p>
+<p align="right"><a href="#inicio">Inicio</a></p>
 
 <!-- ROADMAP -->
 > ## Roadmap
@@ -190,7 +190,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     - [ ] Completar un viaje en proceso
     - [ ] Obtener una lista de todos los viajes en curso
 
-<p align="right">(<a href="#inicio">Inicio</a>)</p>
+<p align="right"><a href="#inicio">Inicio</a></p>
 
 
 
@@ -246,13 +246,39 @@ Dentro de estos _request_ se debera de ejecutar el llamada a _seeds_ , ya que es
     "cellphone": <Number>,
     "latitude": <Number>,
     "longitude": <Number>
-}
+  }
   ```
 
 2. Para validar la informaciòn de este conductor más adelante se utilizará el _request_ `{{url}}/api/drivers/:id` es de tipo `**get**`, donde _:id_ corresponde a parte de la informaciòn del punto anterior.
-3. Para obtener todos los conductore hasta el momento se utilizará el _request_ `{{url}}/api/drivers` es de tipo `**get**`, este retornara todos los conductores que existen hasta el momento.
+3. Para obtener todos los conductore hasta el momento se utilizará el _request_ `{{url}}/api/drivers` es de tipo `**get**`.
+4. Para obtener todos los conductore disponibles hasta el momento se utilizará el _request_ `{{url}}/api/drivers/active` es de tipo `**get**` .
+5. Para obtener todos los conductore disponibles en un rando de 3 Km hasta el momento se utilizará el _request_ `{{url}}/api/drivers/active` es de tipo `**get**`.
 
-<p align="right">(<a href="#inicio">Inicio</a>)</p>
+### Viajes
+
+1. Para generar un viaje se requiere el _request_ `{{url}}/api/travels/starttravel` es de tipo `**post**` , este regresara la informaciòn del viaje con el conductor asignado y del usuario ,colocando a ambos un estado de ***NO DISPONIBLE*** dentro de este vendra un ID con el cual se pobra buscar si es necesario, y requiere de un body  con la latitud y logitud de donde esta el usuario y el ID de un usuario existente y que no este en en algun otro viaje con lo cual queda de la siguiente forma :
+
+  ```json
+   {
+    "latitude": <Number>,
+    "longitude": <Number,
+    "id": "<String>"
+  }
+  ```
+2. Para obtener todos los viajes en curso se utilizara el _request_ `{{url}}/api/travels/allactivetravels` es de tipo `**post**` ,este regresara toda la informaciòn existente hasta el momento .
+3. Para validar un viaje en especifico esta el _request_ `{{url}}/api/travels/:id` es de tipo `**get**`, donde _:id_ es un ID de un viaje iniciado en el punto 1 y regresa la información de condutor , usuario y vieja en curso.
+4. Para finalizar un viaje se utilizara el _request_ `{{url}}/api/travels/finishtravel/:id` es de tipo `**put**`, donde _:id_ es un ID de un viaje iniciado y require de body con la latitud y longitud donde termino el viaje ya que estas seran las nuevas coordenadas donde se encontrara el condutor esperando se le asigne un nuevo viaje, el body quedaria de la siguiente manera:
+
+  ```json
+    {
+      "latitude": <Number>,
+      "longitude": <Number>
+    }
+    ```
+
+
+
+<p align="right"><a href="#inicio">Inicio</a></p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
