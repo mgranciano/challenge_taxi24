@@ -83,9 +83,16 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
 * [NodeJs](https://nodejs.org/en/download)
 * [Docker](https://www.docker.com/products/docker-desktop)
 * [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* [Git](https://git-scm.com)
 
 ### Validación
 
+- [ ] Git
+  1. Ejecutar desde una terminal el siguiente comando   
+   ```sh
+     git --version
+   ```  
+  2. Debera tener un resultado similar a la siguiente imagen
 - [ ] NodeJs
   1. Ejecutar desde una terminal el siguiente comando   
    ```sh
@@ -104,16 +111,17 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     [![Docker_Version Screen Shot][docker-version-screenshot]](https://github.com/mgranciano/challenge_taxi24)
     
 <br />
+
 ### Ejecutando la base de datos
 
-### Ejecutando el código
-
-1. Clonar el repositorio
+1. Clonar el repositorio dentro de una terminal seleccionar una ubicación que se tenga permisos de escritura y ejecutar el siguiente código
    ```sh
    git clone https://github.com/mgranciano/challenge_taxi24.git
    ```
    <br />
-2. Entrar la carpeta generada dentro entrar a `myapp` y ejecutar `npm install`
+### Ejecutando el código
+
+1. Entrar la carpeta generada en el paso de clonación que se realizo en el punto 1 de la base de datos (<a href="#ejecutando-la-base-de-datos">Ejecutando la base de datos</a>) dentro entrar a `myapp` y ejecutar `npm install`
    ```sh
    cd challenge_taxi24/myapp
    npm install
@@ -123,7 +131,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
    [![Node Screen Shot][node-screenshot]](https://github.com/mgranciano/challenge_taxi24)
    
    <br />
-3. Entrar en el código y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se deberá ajustar los valores siguientes
+2. Entrar en el código y generar una copia del archivo `example.env` con el nombre  `.env`, aqui se deberá ajustar los valores siguientes
    <br />
    ```js
     #Puerto donde se iniciara el API
@@ -140,7 +148,7 @@ Deberá de tener instalado lo siguiente de acuerdo a su equipo ( Windows , Linux
     LONGITUDE=-99.178106
    ```
    <br />
- 4. Para ejecutar el código   
+3. Para ejecutar el código   
    ```sh
    npm install
    ```
