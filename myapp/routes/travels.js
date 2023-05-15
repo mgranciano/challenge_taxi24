@@ -1,24 +1,27 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
-const {
-  travelGet,
-  finishTravel,
-  travelGetbyId,
-  startTravel,
-  closestTravel,
-} = require("../controllers/travels");
 const { existUserId } = require("../helpers/db-validators");
 const { validateFields } = require("../middlewares/validate");
 
-const router = Router();
+const Travel = require("../controllers/travels.controller");
 
-router.get("/allactivetravels", travelGet);
+const router = Router();
+const travel = new Travel();
+
+router.get("/allactivetravels", async (req, res, next) => {
+  res.json({
+    result: await travel.Get(req, { status: true })
+  });
+});
 
 router.get(
   "/:id",
   [check("id", "ID not valid").isMongoId(), validateFields],
-  travelGetbyId
-);
+  async (req, res, next) => {
+    res.json({
+      result: await travel.GetById(req)
+    });
+  });
 
 router.get(
   "/closest/:id/:latitude/:longitude",
@@ -28,8 +31,11 @@ router.get(
     check("longitude", "ID not valid").isNumeric(),
     validateFields,
   ],
-  closestTravel
-);
+  async (req, res, next) => {
+    res.json({
+      result: await travel.closestTravel(req)
+    });
+  });
 
 router.post(
   "/starttravel",
@@ -40,8 +46,11 @@ router.post(
     check("id").custom(existUserId),
     validateFields,
   ],
-  startTravel
-);
+  async (req, res, next) => {
+    res.json({
+      result: await travel(req)
+    });
+  });
 
 router.put(
   "/finishtravel/:id",
@@ -51,7 +60,10 @@ router.put(
     check("id", "ID not valid").isMongoId(),
     validateFields,
   ],
-  finishTravel
-);
-
+  async (req, res, next) => {
+    res.json({
+      result: await travel.finishTravel(req ) 
+    });
+  });
+  
 module.exports = router;

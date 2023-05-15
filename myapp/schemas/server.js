@@ -2,11 +2,11 @@ const cors = require('cors');
 const express = require('express');
 const logger = require('morgan');
 
-const os = require("os");
+const os = require('os');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const MongoDB = require('../providers/config-mongo');
 
-const { dbConnection } = require('../providers/config-mongo');
 
 class Server {
 
@@ -24,14 +24,16 @@ class Server {
 
         // Rutas de mi aplicación
         this.routes();
-
+        //start swagger
         this.swagger();
         //this.connectDB();
+
+        this.mongoDb = new MongoDB();
+
     }
 
-
     async connectDB(){
-        await dbConnection();
+      await this.mongoDb.open();
     }
 
     middlewares() {
@@ -67,16 +69,16 @@ class Server {
     swagger(){
         const options = {
             definition: {
-              openapi: "3.0.0",
+              openapi: '3.0.0',
               info: {
-                title: "Taxi24 API with Swagger",
-                version: "0.1.0",
+                title: 'Taxi24 API with Swagger',
+                version: '0.1.0',
                 description:
-                  "This is a simple API application",
+                  'This is a simple API application',
                 contact: {
-                  name: "Moisés Granciano Rosales",
-                  url: "https://www.linkedin.com/in/moises-granciano-2840b6197/",
-                  email: "mgranciano@baufest.com",
+                  name: 'Moisés Granciano Rosales',
+                  url: 'https://www.linkedin.com/in/moises-granciano-2840b6197/',
+                  email: 'mgranciano@baufest.com',
                 },
               },
               servers: [
@@ -100,7 +102,7 @@ class Server {
     listen() {
         this.connectDB().then(()=> {
             this.app.listen( this.port, () => {
-                console.log(`Start server in [${this.hostname}:${this.port}] or [ localhost:${this.port} ]`);
+                console.log(`Start server in [ ${this.hostname}:${this.port} ] or [ localhost:${this.port} ]`);
             });
         }).catch( (error) =>{
             console.log(error);

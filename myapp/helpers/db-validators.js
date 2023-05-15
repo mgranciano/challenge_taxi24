@@ -1,7 +1,7 @@
 
-const { Driver } = require('../schemas/driver');
-const { Travel } = require('../schemas/travel');
-const { User } = require('../schemas/user');
+const { Driver } = require('../models/driver');
+const { Travel } = require('../models/travel');
+const { User } = require('../models/user');
 
 const existUserId = async( id ) => {
     // Verificar si el id existe en la tabla de Users

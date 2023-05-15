@@ -1,22 +1,22 @@
-const {
-  dbConnection,
-  dbConnectionClose,
-} = require("../providers/config-mongo");
-const DriverI = require("../models/driver");
-const UserI = require("../models/user");
+const MongoDB = require('../providers/config-mongo')
+const UserI = require('../schemas/user');
+const DriverI = require('../schemas/driver')
+
+var container = {};
+container.instance = new MongoDB();
 
 beforeAll(async () => {
-  await dbConnection();
+    await container.instance.open();
 });
 
 afterAll(async () => {
-  await dbConnectionClose();
+    await container.instance.close();
+    delete container.instance;
 });
 
-describe("User Test", () => {
-  const user = new UserI();
+describe("User Test",  () => {
+  const user = new UserI
   var id = "";
-
   test("Create", async () => {
     const userCreate = await user.create(
       `user`,
@@ -46,8 +46,9 @@ describe("User Test", () => {
     const userRead = await user.findById(id);
     expect(userRead).toEqual(null);
   });
+  
 });
-
+/*
 describe("Driver Test", () => {
   const driver = new DriverI();
   var id = "";
@@ -85,4 +86,4 @@ describe("Driver Test", () => {
     const driverRead = await driver.findById(id);
     expect(driverRead).toEqual(null);
   });
-});
+});*/

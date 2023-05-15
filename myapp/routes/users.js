@@ -1,28 +1,36 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
-
-const {
-  userGet,
-  userPost,
-  userPut,
-  userDelete,
-  userActiveGet,
-  userIntravelGet,
-  userGetbyId,
-} = require("../controllers/users");
 const { validateFields } = require("../middlewares/validate");
 const { existUserId, existEmailUser } = require("../helpers/db-validators");
 
-const router = Router();
+const User = require("../controllers/users.controller");
 
-router.get("/", userGet);
-router.get("/active", userActiveGet);
-router.get("/intravel", userIntravelGet);
-router.get(
-  "/:id",
-  [check("id", "ID not valid").isMongoId(), validateFields],
-  userGetbyId
+const router = Router();
+const user = new User();
+
+router.get('/', async (req, res, next) => {
+  res.json({
+    result: await user.get(req)
+  });
+});
+
+router.get('/active',async (req, res, next) => {
+  res.json(
+    await user.get(req, { status: true } )
+  );
+});
+
+router.get('/intravel', async (req, res, next) => {
+res.json(
+  await user.get(req, { intravel: true } )
 );
+});
+
+router.get( '/:id', async (req, res, next) => {
+  res.json(
+    await user.getById(req)
+  );
+});
 
 router.post(
   "/",
@@ -33,9 +41,11 @@ router.post(
     check("email").custom(existEmailUser),
     check("cellphone", "Cell Phone is required").not().isEmpty(),
     validateFields,
-  ],
-  userPost
-);
+  ], async (req, res, next) => {
+    res.json(
+      await user.post(req)
+    );
+});
 
 router.put(
   "/:id",
@@ -43,9 +53,11 @@ router.put(
     check("id", "ID not valid").isMongoId(),
     check("id").custom(existUserId),
     validateFields,
-  ],
-  userPut
-);
+  ], async (req, res, next) => {
+    res.json(
+      await user.put(req)
+    );
+});
 
 router.delete(
   "/:id",
@@ -53,8 +65,10 @@ router.delete(
     check("id", "ID not valid").isMongoId(),
     check("id").custom(existUserId),
     validateFields,
-  ],
-  userDelete
-);
+  ], async (req, res, next) => {
+    res.json(
+      await user.delete(req)
+    );
+});
 
 module.exports = router;

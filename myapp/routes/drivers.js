@@ -1,76 +1,92 @@
-const { Router } = require("express");
-const { check } = require("express-validator");
-const { validateFields } = require("../middlewares/validate");
-const { existDriverId, existEmailDriver } = require("../helpers/db-validators");
-const {
-  driverGet,
-  driverPost,
-  driverPut,
-  driverActiveGet,
-  driverIntravelGet,
-  driverGetbyId,
-  driverDelete,
-  driverNotIntravelGet,
-  driverIn3kmGet,
-} = require("../controllers/drivers");
+const { Router } = require('express');
+const { check } = require('express-validator');
+const { validateFields } = require('../middlewares/validate');
+const { existDriverId, existEmailDriver } = require('../helpers/db-validators');
+
+const Driver = require('../controllers/drivers.controller')
 
 const router = Router();
+const driver = new Driver();
 
-router.get("/", driverGet);
+router.get('/', async (req, res, next) => {
+      res.json({
+        result: await driver.get(req)
+    });
+});
 
-router.get("/active", driverActiveGet);
+router.get('/active',async (req, res, next) => {
+    res.json(
+      await driver.get(req, { status: true } )
+    );
+});
 
-router.get("/intravel", driverIntravelGet);
+router.get('/intravel', async (req, res, next) => {
+  res.json(
+    await driver.get(req, { intravel: true } )
+  );
+});
 
-router.get("/notintravel", driverNotIntravelGet);
+router.get('/notintravel', async (req, res, next) => {
+  res.json(
+    await driver.get(req, { intravel: false } )
+  );
+});
+
+router.get( '/:id', async (req, res, next) => {
+    res.json(
+      await driver.getById(req)
+    );
+});
 
 router.get(
-  "/:id",
-  [check("id", "ID not valid").isMongoId(), validateFields],
-  driverGetbyId
-);
-
-router.get(
-  "/closest/:latitude/:longitude",
+  '/closest/:latitude/:longitude',
   [
-    check("latitude", "ID not valid").isNumeric(),
-    check("longitude", "ID not valid").isNumeric(),
+    check('latitude', 'ID not valid').isNumeric(),
+    check('longitude', 'ID not valid').isNumeric(),
     validateFields,
-  ],
-  driverIn3kmGet
-);
+  ], async (req, res, next) => {
+    res.json(
+      await driver.in3kmGet(req)
+    );
+});
 
 router.post(
-  "/",
+  '/',
   [
-    check("name", "Name is required").not().isEmpty(),
-    check("lastname", "Last Name is required").not().isEmpty(),
-    check("email", "Email is required").not().isEmpty(),
-    check("email").custom(existEmailDriver),
-    check("cellphone", "Cell Phone is required").not().isEmpty(),
+    check('name', 'Name is required').not().isEmpty(),
+    check('lastname', 'Last Name is required').not().isEmpty(),
+    check('email', 'Email is required').not().isEmpty(),
+    check('email').custom(existEmailDriver),
+    check('cellphone', 'Cell Phone is required').not().isEmpty(),
     validateFields,
-  ],
-  driverPost
-);
+  ], async (req, res, next) => {
+    res.json(
+      await driver.post(req)
+    );
+});
 
 router.put(
-  "/:id",
+  '/:id',
   [
-    check("id", "ID not valid").isMongoId(),
-    check("id").custom(existDriverId),
+    check('id', 'ID not valid').isMongoId(),
+    check('id').custom(existDriverId),
     validateFields,
-  ],
-  driverPut
-);
+  ], async (req, res, next) => {
+    res.json(
+      await driver.put(req)
+    );
+});
 
 router.delete(
-  "/:id",
+  '/:id',
   [
-    check("id", "ID not valid").isMongoId(),
-    check("id").custom(existDriverId),
+    check('id', 'ID not valid').isMongoId(),
+    check('id').custom(existDriverId),
     validateFields,
-  ],
-  driverDelete
-);
+  ], async (req, res, next) => {
+    res.json(
+      await driver.delete(req)
+    );
+});
 
 module.exports = router;

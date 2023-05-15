@@ -1,36 +1,43 @@
-const { User } = require("../schemas/user");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-class UserI {
-  constructor() {}
+const UserSchema = Schema({
+    name: {
+        type: String,
+        required: [true, 'Name is required']
+    },
+    lastname: {
+        type: String,
+        required: [true, 'Last Name is required']
+    },
+    email: {
+        type: String,
+        required: [true, 'Email is required'],
+        unique: true
+    },
+    cellphone: {
+        type: Number,
+        required: [true, 'Cell Phone is required'],
+    },
+    create_date: {
+        type:Date,
+        default: new Date()
+    },
+    modified_date: {
+        type:Date,
+        default: new Date()
+    },
+    status: {
+        type: Boolean,
+        default: true
+    },
+    intravel: {
+        type: Boolean,
+        default: false
+    }
+});
+ 
 
-  async create(name, lastname, email, cellphone) {
-    this.name = name;
-    this.lastname = lastname;
-    this.email = email;
-    this.cellphone = cellphone;
+const User =  mongoose.model( 'User', UserSchema );
 
-    this.user = new User({
-      name: this.name,
-      lastname: this.lastname,
-      email: this.email,
-      cellphone: this.cellphone,
-    });
-    return await this.user.save();
-  }
-
-  async findById(id) {
-    return await User.findById(id);
-  }
-
-  async findByIdAndUpdate(id, document) {
-    return await User.findByIdAndUpdate(id, document, {
-      returnDocument: "after",
-    });
-  }
-
-  async findByIdAndDelete(id) {
-    return await User.findByIdAndDelete(id, { returnDocument: "after" });
-  }
-}
-
-module.exports = UserI;
+module.exports = { User , UserSchema}

@@ -1,34 +1,53 @@
-const { Driver } = require("../schemas/driver");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-class DriverI {
-
-    constructor() {
+const DriverSchema = Schema({
+    name: {
+        type: String,
+        required: [true, 'Name is required']
+    },
+    lastname: {
+        type: String,
+        required: [true, 'Last Name is required']
+    },
+    email: {
+        type: String,
+        required: [true, 'Email is required'],
+        unique: true
+    },
+    cellphone: {
+        type: Number,
+        required: [true, 'Cell Phone is required'],
+    },
+    create_date: {
+        type:Date,
+        default: new Date()
+    },
+    modified_date: {
+        type:Date,
+        default: new Date()
+    },
+    status: {
+        type: Boolean,
+        default: true
+    },
+    intravel: {
+        type: Boolean,
+        default: false
+    },
+    latitude: {
+        type:Number,
+        default: 0
     }
-
-    async create(name, lastname, email, cellphone, latitude, longitude){
-
-        this.name = name;
-        this.lastname = lastname;
-        this.email =  email;
-        this.cellphone = cellphone;
-        this.latitude = latitude;
-        this.longitude = longitude;
-
-        this.driver = new Driver({ name: this.name, lastname: this.lastname, email: this.email,cellphone:  this.cellphone, latitude: this.latitude, longitude: this.longitude});
-        return  await this.driver.save();
+    ,
+    longitude: {
+        type:Number,
+        default: 0
     }
+});
 
-    async findById(id){
-        return await Driver.findById(id);
-    }
 
-    async findByIdAndUpdate(id, document){
-        return await Driver.findByIdAndUpdate( id, document , {returnDocument: 'after'});
-    }
 
-    async findByIdAndDelete( id ){
-        return await Driver.findByIdAndDelete( id , {returnDocument: 'after'});
-    }
-}
+const Driver =  mongoose.model( 'Driver', DriverSchema );
 
-module.exports = DriverI;
+module.exports = { Driver, DriverSchema}
