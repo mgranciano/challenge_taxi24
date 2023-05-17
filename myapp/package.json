@@ -1,10 +1,6 @@
 {
   "name": "taxi24",
-<<<<<<< HEAD
-  "version": "1.0.0",
-=======
   "version": "0.2.0",
->>>>>>> dc2f9cf (add unit test for endpoint)
   "private": true,
   "description": "API FOR Taxi24 ",
   "main": "index.js",
