@@ -1,6 +1,10 @@
 {
   "name": "taxi24",
+<<<<<<< HEAD
   "version": "1.0.0",
+=======
+  "version": "0.2.0",
+>>>>>>> dc2f9cf (add unit test for endpoint)
   "private": true,
   "description": "API FOR Taxi24 ",
   "main": "index.js",
@@ -15,14 +19,20 @@
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-http-context": "^1.2.4",
+    "express-logger-unique-req-id": "^1.0.4",
     "express-validator": "^6.9.2",
     "http-errors": "~1.6.3",
     "jest": "^29.5.0",
     "mongodb-memory-server": "^8.12.2",
     "mongoose": "^5.11.15",
     "morgan": "~1.9.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.2",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.3"
+    "swagger-ui-express": "^4.6.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.3"
   }
 }

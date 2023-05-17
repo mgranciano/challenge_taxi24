@@ -1,6 +1,9 @@
-const MongoDB = require('../providers/config-mongo')
-const UserI = require('../schemas/user');
-const DriverI = require('../schemas/driver')
+const request = require('supertest');
+
+const MongoDB = require('../providers/config-mongo');
+const Server = require('../schemas/server');
+
+const app = new Server().getServer();
 
 var container = {};
 container.instance = new MongoDB();
@@ -14,76 +17,85 @@ afterAll(async () => {
     delete container.instance;
 });
 
-describe("User Test",  () => {
-  const user = new UserI
-  var id = "";
-  test("Create", async () => {
-    const userCreate = await user.create(
-      `user`,
-      `lastname`,
-      `email@user.com`,
-      5555555550
-    );
-    id = userCreate._id;
-    expect(userCreate.name).toEqual("user");
-    expect(userCreate.lastname).toEqual("lastname");
+describe("Test endpoint /",  () => {
+
+  it('/', async () => {
+    const response = await request(app).get('/').send();
+    expect(response.statusCode).toBe(200);
+  });
+  it('/test', async () => {
+    const response = await request(app).get('/test').send();
+    expect(response.statusCode).toBe(200);
+    expect(response.body.message).toBe('pass!');
   });
 
-  test("Read", async () => {
-    const userRead = await user.findById(id);
-
-    expect(userRead.name).toEqual("user");
-    expect(userRead.status).toEqual(true);
-  });
-
-  test("Update", async () => {
-    const userUpdate = await user.findByIdAndUpdate(id, { name: "newName" });
-    expect(userUpdate.name).toEqual("newName");
-  });
-
-  test("Delete", async () => {
-    await user.findByIdAndDelete(id, { returnDocument: "after" });
-    const userRead = await user.findById(id);
-    expect(userRead).toEqual(null);
-  });
-  
 });
-/*
-describe("Driver Test", () => {
-  const driver = new DriverI();
-  var id = "";
 
-  test("Create", async () => {
-    const driverCreate = await driver.create(
-      `driver`,
-      `lastnameDriver`,
-      `emailDriver@user.com`,
-      5555555550,
-      19.517494,
-      -99.0121012
-    );
-    id = driverCreate._id;
-    expect(driverCreate.name).toEqual("driver");
-    expect(driverCreate.lastname).toEqual("lastnameDriver");
+describe("Test endpoint users",  () => {
+
+  var user = null;
+
+  it ('validation user', async () => {
+
+    const response = await request(app).post('/api/users').send();
+
+    expect(response.statusCode).toBe(400);
+    expect(response.body.errors[0].msg).toBe('Name is required');
+    expect(response.body.errors[1].msg).toBe('Last Name is required');
+    expect(response.body.errors[2].msg).toBe('Email is required');
+    expect(response.body.errors[3].msg).toBe('Cell Phone is required');
+    
   });
 
-  test("Read", async () => {
-    const driverRead = await driver.findById(id);
+  it('post user', async () => {
 
-    expect(driverRead.name).toEqual("driver");
-    expect(driverRead.status).toEqual(true);
+    const data = {
+      "name":"nameeeeeeee",
+      "lastname":"lastn3am1dd2ew22222e2Jeds3t3",
+      "email":"jest@j222ei2eda2wd2l34",
+      "cellphone": "554000001"
+    }
+
+    const response = await request(app).post('/api/users').send(data);
+
+    expect(response.statusCode).toBe(200);
+    user = response.body.users[0];
+    expect(response.body.count).toBe(1);
+    expect(user._id).toBeDefined();
+
   });
 
-  test("Update", async () => {
-    const driverUpdate = await driver.findByIdAndUpdate(id, {
-      name: "newName",
-    });
-    expect(driverUpdate.name).toEqual("newName");
+  it('put user', async ()=>{
+
+    const data = {
+      "name":"userPut",
+      "lastname":"lastnamePut"
+    }
+    const response = await request(app).put(`/api/users/${user._id}`).send(data);
+
+    user = response.body.users[0];
+    expect(response.statusCode).toBe(200);
+    expect(response.body.count).toBe(1);
+    expect(user.name).toBe('userPut');
+    expect(user.lastname).toBe('lastnamePut');
+
   });
 
-  test("Delete", async () => {
-    await driver.findByIdAndDelete(id, { returnDocument: "after" });
-    const driverRead = await driver.findById(id);
-    expect(driverRead).toEqual(null);
+  it('get id user', async ()=>{
+
+    const response = await request(app).get(`/api/users/${user._id}`).send();
+    getUser = response.body.users[0];
+    expect(response.statusCode).toBe(200);
+    expect(getUser).toEqual(user);
+
   });
-});*/
+
+  it('delete id user', async ()=>{
+
+    const response = await request(app).delete(`/api/users/${user._id}`).send();
+    expect(response.statusCode).toBe(200);
+
+  });
+
+});
+

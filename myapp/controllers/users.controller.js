@@ -20,8 +20,6 @@ class User {
 
         const user = await this.user.findById( id );
 
-        console.log(user);
-
         if(user){
             users.push( user );
         }

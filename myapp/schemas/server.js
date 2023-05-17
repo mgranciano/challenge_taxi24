@@ -102,13 +102,17 @@ class Server {
     listen() {
         this.connectDB().then(()=> {
             this.app.listen( this.port, () => {
-                console.log(`Start server in [ ${this.hostname}:${this.port} ] or [ localhost:${this.port} ]`);
+                console.log(`Start server in [ ${this.hostname}:${this.port} ] or [ localhost: ${ this.port }]`);
             });
         }).catch( (error) =>{
             console.log(error);
-        });    
-        
+        });
     }
+
+    getServer() {
+      return this.app;
+    }
+
 
 }
 
