@@ -9,15 +9,11 @@ const router = Router();
 const user = new User();
 
 router.get('/', async (req, res, next) => {
-  res.json({
-    result: await user.get(req)
-  });
+    res.json( await user.get(req) );
 });
 
 router.get('/active',async (req, res, next) => {
-  res.json(
-    await user.get(req, { status: true } )
-  );
+  res.json( await user.get(req, { status: true } ));
 });
 
 router.get('/intravel', async (req, res, next) => {

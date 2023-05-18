@@ -50,6 +50,17 @@ const TravelSchema = Schema({
     },
 });
 
+TravelSchema.method('toJSON', function() {
+  
+    const travel = this;
+    const travelObject = travel.toObject();
+    travelObject.uid = travel._id;
+    delete travelObject.__v;
+    delete travelObject._id;
+    
+    return travelObject;
+    
+  });
 
 const Travel =  mongoose.model( 'Travel', TravelSchema );
 

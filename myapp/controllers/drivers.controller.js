@@ -1,5 +1,5 @@
 
-//const { find3kmCoord } = require('../helpers/coords-utils');
+const logger = require('../middlewares/logger');
 const Coordinates = require('../helpers/coords-utils');
 const DriverI = require('../schemas/driver');
 
@@ -11,12 +11,15 @@ class Driver {
     }
 
     async notIntravel(){
-        return await this.driver.find( { intravel: false } ,null,null);   
+        const drivers = await this.driver.find( { intravel: false } ,null,null)
+        logger.info(`Driver -> notIntravel -> ${JSON.stringify(drivers)}`);
+        return drivers;  
     }
 
     async get ( req , params = null ) {
         const { limite = 25, desde = 0 } = req.query;     
-        const [ count , drivers ] = await this.driver.findDocuments( params, desde, limite );   
+        const [ count , drivers ] = await this.driver.findDocuments( params, desde, limite );  
+        logger.info(`Driver -> get ->${JSON.stringify(drivers)}`); 
         return {  count , drivers };
     }
 
@@ -30,7 +33,7 @@ class Driver {
         if( driver ){
             drivers.push(driver);
         }
-    
+        logger.info(`Driver -> getById -> ${JSON.stringify(drivers)}`);
         return {  count:drivers.length , drivers };
     }
 
@@ -39,7 +42,7 @@ class Driver {
         const { latitude, longitude } = req.params;
         const notInTravel = await this.notIntravel();
         const located = this.coordinates.find3km(notInTravel,{latitude, longitude} ); 
-    
+        logger.info(`Driver -> in3kmGet -> ${JSON.stringify(located)}`);
         return { count: located.length, located };
     }
  
@@ -56,7 +59,7 @@ class Driver {
                                     latitude,
                                     longitude
                                 ));
-
+        logger.info(`Driver -> post ->${JSON.stringify(drivers)}`);
         return {  count: drivers.length , drivers };
     }
 
@@ -67,7 +70,7 @@ class Driver {
         const drivers = [];
     
         drivers.push( await this.driver.findByIdAndUpdate( id, resto ) );
-
+        logger.info(`Driver -> put ->${JSON.stringify(drivers)}`);
         return {  count: drivers.length , drivers };
     }
 
@@ -77,7 +80,7 @@ class Driver {
         const drivers = [];
     
         drivers.push( await this.driver.findByIdAndDelete( id ) );
-
+        logger.info(`Driver -> delete ->${JSON.stringify(drivers)}`);
         return {  count: drivers.length , drivers };
     }
 }

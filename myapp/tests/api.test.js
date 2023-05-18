@@ -50,9 +50,9 @@ describe("Test endpoint users",  () => {
   it('post user', async () => {
 
     const data = {
-      "name":"nameeeeeeee",
-      "lastname":"lastn3am1dd2ew22222e2Jeds3t3",
-      "email":"jest@j222ei2eda2wd2l34",
+      "name":"2222",
+      "lastname":"lastn322am1d2d2e2w222232e2Jeds3t3",
+      "email":"jest@j222ei222e32da22wd2l34",
       "cellphone": "554000001"
     }
 
@@ -61,7 +61,7 @@ describe("Test endpoint users",  () => {
     expect(response.statusCode).toBe(200);
     user = response.body.users[0];
     expect(response.body.count).toBe(1);
-    expect(user._id).toBeDefined();
+    expect(user.uid).toBeDefined();
 
   });
 
@@ -71,7 +71,7 @@ describe("Test endpoint users",  () => {
       "name":"userPut",
       "lastname":"lastnamePut"
     }
-    const response = await request(app).put(`/api/users/${user._id}`).send(data);
+    const response = await request(app).put(`/api/users/${user.uid}`).send(data);
 
     user = response.body.users[0];
     expect(response.statusCode).toBe(200);
@@ -83,7 +83,7 @@ describe("Test endpoint users",  () => {
 
   it('get id user', async ()=>{
 
-    const response = await request(app).get(`/api/users/${user._id}`).send();
+    const response = await request(app).get(`/api/users/${user.uid}`).send();
     getUser = response.body.users[0];
     expect(response.statusCode).toBe(200);
     expect(getUser).toEqual(user);
@@ -92,7 +92,7 @@ describe("Test endpoint users",  () => {
 
   it('delete id user', async ()=>{
 
-    const response = await request(app).delete(`/api/users/${user._id}`).send();
+    const response = await request(app).delete(`/api/users/${user.uid}`).send();
     expect(response.statusCode).toBe(200);
 
   });

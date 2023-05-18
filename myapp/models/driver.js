@@ -46,7 +46,17 @@ const DriverSchema = Schema({
     }
 });
 
-
+DriverSchema.method('toJSON', function() {
+  
+    const driver = this;
+    const driverObject = driver.toObject();
+    driverObject.uid = driver._id;
+    delete driverObject.__v;
+    delete driverObject._id;
+    
+    return driverObject;
+    
+  });
 
 const Driver =  mongoose.model( 'Driver', DriverSchema );
 

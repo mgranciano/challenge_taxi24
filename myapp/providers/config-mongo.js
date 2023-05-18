@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const logger = require('../middlewares/logger');
 
 class MongoDB{
 
@@ -22,8 +23,7 @@ class MongoDB{
                 dbName: this.db_name
             });
     
-            
-            console.log(`Connect to DataBase [ ${ this.db_host} ][ ${ this.db_name } ][OK]`);
+            logger.info(`Connect to DataBase [ ${ this.db_host} ][ ${ this.db_name } ][OK]`);
     
         } catch (error) {
             throw new Error(`Connect to DataBase [${error}]`);
@@ -47,7 +47,7 @@ class MongoDB{
 
             await this.mongoInstance.connection.close();
             this.mongoInstance = null;
-            console.log('Close to DataBase [OK]');
+            logger.info('Close to DataBase [OK]');
 
         } catch (error) {
             throw new Error(`Connect to DataBase [${error.codeName}]`);

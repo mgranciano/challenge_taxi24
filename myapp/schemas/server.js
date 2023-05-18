@@ -1,13 +1,17 @@
 const cors = require('cors');
-const express = require('express');
-const logger = require('morgan');
-
 const os = require('os');
+
+const express = require('express');
+
+const httpContext = require('express-http-context');
+
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+
 const MongoDB = require('../providers/config-mongo');
 
-
+const logger = require('../middlewares/logger');
+const { interceptor } = require('../middlewares/interceptor');
 class Server {
 
     constructor() {
@@ -27,9 +31,7 @@ class Server {
         //start swagger
         this.swagger();
         //this.connectDB();
-
         this.mongoDb = new MongoDB();
-
     }
 
     async connectDB(){
@@ -42,9 +44,6 @@ class Server {
         this.app.set('views','views');
         this.app.set('view engine', 'pug');
 
-        //logger
-        this.app.use(logger('dev'));
-
         // CORS
         this.app.use( cors() );
 
@@ -54,7 +53,13 @@ class Server {
         // Directorio Público
         this.app.use( express.static('public') );
 
+        this.app.use(httpContext.middleware);
+
+        // Run the context for each request. Assign a unique identifier to each request
+        this.app.use( interceptor);
+
     }
+
 
     routes() {
         
@@ -102,10 +107,10 @@ class Server {
     listen() {
         this.connectDB().then(()=> {
             this.app.listen( this.port, () => {
-                console.log(`Start server in [ ${this.hostname}:${this.port} ] or [ localhost: ${ this.port }]`);
+                logger.info(`Start server in [ ${this.hostname}:${this.port} ] or [ localhost: ${ this.port } ]`);
             });
         }).catch( (error) =>{
-            console.log(error);
+            logger.error(error);
         });
     }
 
